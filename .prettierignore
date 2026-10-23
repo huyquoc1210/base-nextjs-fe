@@ -1,0 +1,7 @@
+.next
+pnpm-lock.yaml
+public
+.playwright-mcp
+.agents
+skills-lock.json
+.claude/skills

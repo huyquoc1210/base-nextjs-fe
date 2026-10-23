@@ -1,0 +1,39 @@
+{
+  "Common": {
+    "appName": "AMS"
+  },
+  "Metadata": {
+    "title": "AMS",
+    "description": "Hệ thống quản lý tài sản"
+  },
+  "Login": {
+    "title": "Chào mừng trở lại",
+    "description": "Đăng nhập bằng tài khoản Apple hoặc Google",
+    "loginWithApple": "Đăng nhập với Apple",
+    "loginWithGoogle": "Đăng nhập với Google",
+    "separator": "Hoặc tiếp tục với",
+    "email": "Email",
+    "emailPlaceholder": "m@example.com",
+    "password": "Mật khẩu",
+    "forgotPassword": "Quên mật khẩu?",
+    "submit": "Đăng nhập",
+    "noAccount": "Chưa có tài khoản?",
+    "signUp": "Đăng ký"
+  },
+  "Logout": {
+    "title": "Đăng xuất",
+    "signingOut": "Đang đăng xuất..."
+  },
+  "RefreshToken": {
+    "title": "Làm mới phiên",
+    "refreshing": "Đang làm mới..."
+  },
+  "Dashboard": {
+    "title": "Bảng điều khiển"
+  },
+  "ErrorMessage": {
+    "invalidEmail": "Email không hợp lệ",
+    "passwordTooShort": "Mật khẩu phải có ít nhất 6 ký tự",
+    "unknown": "Đã có lỗi xảy ra"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "Common": {
+    "appName": "AMS"
+  },
+  "Metadata": {
+    "title": "AMS",
+    "description": "Asset management system"
+  },
+  "Login": {
+    "title": "Welcome back",
+    "description": "Login with your Apple or Google account",
+    "loginWithApple": "Login with Apple",
+    "loginWithGoogle": "Login with Google",
+    "separator": "Or continue with",
+    "email": "Email",
+    "emailPlaceholder": "m@example.com",
+    "password": "Password",
+    "forgotPassword": "Forgot your password?",
+    "submit": "Login",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up"
+  },
+  "Logout": {
+    "title": "Logout",
+    "signingOut": "Signing out..."
+  },
+  "RefreshToken": {
+    "title": "Refresh token",
+    "refreshing": "Refreshing..."
+  },
+  "Dashboard": {
+    "title": "Dashboard"
+  },
+  "ErrorMessage": {
+    "invalidEmail": "Invalid email",
+    "passwordTooShort": "Password must be at least 6 characters",
+    "unknown": "Something went wrong"
+  }
+}
