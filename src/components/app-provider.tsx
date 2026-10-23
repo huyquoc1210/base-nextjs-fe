@@ -3,7 +3,7 @@
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import RefreshToken from "@/components/refresh-token";
-import { useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import { decodeToken } from "@/lib/jwt";
 import LocalStorage from "@/lib/local-storage";
 import type { RoleType } from "@/types/jwt";
@@ -67,7 +67,11 @@ const AppProvider: FCC = (props) => {
   return (
     <QueryClientProvider client={queryClient}>
       {children}
-      <RefreshToken />
+      {/* RefreshToken reads usePathname, which the catch-all route cannot
+          resolve at build time; the boundary lets the shell prerender */}
+      <Suspense>
+        <RefreshToken />
+      </Suspense>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

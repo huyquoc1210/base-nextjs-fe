@@ -6,17 +6,17 @@ vào được route nào.
 Code nằm rải nhiều thư mục vì luồng này đi qua ranh giới client/server vài lần.
 Tài liệu này là chỗ duy nhất mô tả nó như một khối thống nhất.
 
-| Phần việc | Nằm ở |
-| --- | --- |
-| Lưu token phía client | `src/lib/local-storage.ts` |
-| Lưu token phía server | `src/lib/auth-cookie.ts` |
-| Logic refresh | `src/lib/auth-refresh.ts` |
-| Retry khi gặp 401 | `src/lib/http-client.ts` |
-| Timer refresh chủ động | `src/components/refresh-token.tsx` |
-| Route handler ghi cookie | `src/app/api/auth/*/route.ts` |
-| Gọi backend | `src/apis/auth.ts` |
-| Chặn route | `src/proxy.ts`, `src/constants/access.ts` |
-| Trang | `src/app/[locale]/(auth)/*` |
+| Phần việc                | Nằm ở                                     |
+| ------------------------ | ----------------------------------------- |
+| Lưu token phía client    | `src/lib/local-storage.ts`                |
+| Lưu token phía server    | `src/lib/auth-cookie.ts`                  |
+| Logic refresh            | `src/lib/auth-refresh.ts`                 |
+| Retry khi gặp 401        | `src/lib/http-client.ts`                  |
+| Timer refresh chủ động   | `src/components/refresh-token.tsx`        |
+| Route handler ghi cookie | `src/app/api/auth/*/route.ts`             |
+| Gọi backend              | `src/apis/auth.ts`                        |
+| Chặn route               | `src/proxy.ts`, `src/constants/access.ts` |
+| Trang                    | `src/app/[locale]/(auth)/*`               |
 
 ## Vì sao có hai nơi lưu token
 

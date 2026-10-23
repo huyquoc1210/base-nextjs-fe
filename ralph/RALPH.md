@@ -12,13 +12,13 @@ An **array** of stories.
 ```json
 [
   {
-    "id": "auth-overview-page",
+    "id": "auth-register-page",
     "category": "auth",
-    "description": "Build the /overview landing page shown after login",
-    "why": "Paths.index points at /overview but no page exists, so login lands on a 404",
+    "description": "Build the /register page for creating a new account",
+    "why": "Paths.auth.register.index is declared but no page exists, so the link from the login form lands on a 404",
     "steps": ["...", "..."],
     "passes": false,
-    "touches": ["src/app/[locale]/overview/"],
+    "touches": ["src/app/[locale]/(auth)/register/"],
     "notes": "..."
   }
 ]

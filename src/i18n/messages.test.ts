@@ -50,6 +50,10 @@ describe("message catalogs", () => {
     // were left as an English copy.
     expect(vi.Login.title).not.toBe(en.Login.title);
     expect(vi.Login.submit).not.toBe(en.Login.submit);
+
+    // NotFound ships with the 404 page and is easy to forget when adding a key
+    expect(vi.NotFound.title).not.toBe(en.NotFound.title);
+    expect(vi.NotFound.backHome).not.toBe(en.NotFound.backHome);
   });
 
   it("defines every error key the zod schema emits", () => {

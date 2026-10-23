@@ -31,7 +31,7 @@ translation key fails the test instead of silently rendering the key.
 Branches. A component that only returns JSX has nothing to get wrong; a token
 refresh with a single-flight guard has plenty.
 
-Test observable behaviour, not internals. `expect(push).toHaveBeenCalledWith("/overview")`
+Test observable behaviour, not internals. `expect(push).toHaveBeenCalledWith("/manage/dashboard")`
 is a real assertion. Asserting on a private variable is not.
 
 Name the test after the behaviour and its reason — "refuses a token this

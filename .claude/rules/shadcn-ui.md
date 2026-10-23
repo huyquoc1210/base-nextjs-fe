@@ -187,24 +187,34 @@ See also:
 
 ## Styling by state
 
-Every shadcn/ui component (built on Radix UI) exposes `data-*` attributes for its state (`data-state="open"`, `data-state="checked"`, `data-disabled`, `data-slot`). Style against those with Tailwind **variants** instead of writing custom CSS:
+`components/ui` is built on **Base UI**, which exposes each state as its own
+boolean `data-*` attribute — `data-checked`, `data-unchecked`, `data-open`,
+`data-closed`, `data-disabled`. It does **not** use Radix's
+`data-state="checked"` form. Writing `data-[state=checked]:` produces a class
+that silently never matches.
 
 ```tsx
 import { Checkbox } from "@/components/ui/checkbox";
 
 const Component = () => {
   return (
-    <Checkbox className="data-[state=checked]:border-primary data-[state=checked]:bg-primary" />
+    <Checkbox className="data-checked:border-primary data-checked:bg-primary" />
   );
 };
 
 export default Component;
 ```
 
+The authoritative list for the installed version is the `*DataAttributes.d.ts`
+files inside `@base-ui/react` — for example
+`node_modules/@base-ui/react/checkbox/root/CheckboxRootDataAttributes.d.ts`.
+Check there rather than writing from memory.
+
 Variants you will reach for:
 
-- Radix state: `data-[state=open]:`, `data-[state=checked]:`, `data-[disabled]:`.
-- Standard state: `hover:`, `focus-visible:`, `disabled:`, `aria-invalid:`.
+- Base UI state: `data-checked:`, `data-unchecked:`, `data-open:`, `data-closed:`, `data-disabled:`.
+- ARIA, which `button.tsx` actually uses: `aria-expanded:`, `aria-invalid:`.
+- Standard state: `hover:`, `focus-visible:`, `disabled:`.
 - Child elements: `[&_svg]:size-4`, `[&>span]:text-sm`.
 - Parent/sibling: `group` + `group-hover:`, `peer` + `peer-disabled:`.
 
@@ -220,19 +230,18 @@ See also:
 
 ## Composition
 
-To change the element a component renders (turning a `Button` into an `a`/`Link`, say), use **asChild** instead of nesting:
+To change the element a component renders (turning a `Button` into an `a`/`Link`, say), pass the element through **render** instead of nesting. `components/ui` is built on Base UI, which has no `asChild` — writing it does not compile:
 
 ```tsx
+import Paths from "@/constants/paths";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 const Component = () => {
-  return (
-    <Button asChild>
-      <Link href="/login">Sign in</Link>
-    </Button>
-  );
+  return <Button render={<Link href={Paths.index} />}>Back to home</Button>;
 };
 
 export default Component;
 ```
+
+The children stay on the outer component; the element in `render` only supplies the tag and its props.
